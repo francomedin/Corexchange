@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SocialNetwork
+from .models import Link
 # Register your models here.
 
-admin.site.register(SocialNetwork)
+admin.site.register(Link)

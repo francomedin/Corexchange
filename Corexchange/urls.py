@@ -18,21 +18,28 @@ from django.urls import include, path
 from django.conf import settings
 
 urlpatterns = [
-    
+
     path('admin/', admin.site.urls),
-    #Urls de la app Core
+    # Urls de la app Core
     path('', include('core.urls')),
-    #Urls de la app Blog
-    path('blog/',include('blog.urls')),
-    #Urls de la app contact
-    path('contact/',include('contact.urls')),
+    # Urls de la app Blog
+    path('blog/', include('blog.urls')),
+    # Urls de la app contact
+    path('contact/', include('contact.urls')),
+    # Paths del auth
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('registration.urls')),
 
 
-   
-    
+
+
+
+
+
 
 ]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
-    urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

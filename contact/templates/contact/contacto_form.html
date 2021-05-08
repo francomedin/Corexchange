@@ -1,7 +1,46 @@
 {%extends 'core/base.html'%}
+{%load static%}
 {%block content%}
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+<section class="page-section" >
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Contactanos</h2>
+            <h3 class="section-subheading text-muted">Envianos tu mensaje, un asesor se comunicar a la brevedad</h3>
+        </div>
+        <!--Formulario de Contacto-->
+        <form  action="" method="POST">
+            {% csrf_token %}
+            
+            <div class="row align-items-stretch mb-5">
+                
+                <div class="col-md-6">
+                     
+                    <div class="form-group">
+                        {{form.title}}
+                    </div>
+
+                    <div class="form-group">
+                        {{form.mail}}
+                    </div>
+
+                    <div class="form-group mb-md-0">
+                        {{form.phone}}
+                    </div> 
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        {{form.content}}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Enviar">
+            </div>
+        </form>
+    </div>
+</section>
+
+
 {%endblock%}

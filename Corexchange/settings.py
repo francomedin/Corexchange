@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'redes.processors.ctx_dict'
             ],
         },
     },
@@ -83,9 +85,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'corexchange',
         'USER': 'postgres',
-        'PASSWORD':'admin',
-        'HOST':'127.0.0.1',
-        'DATABASE.PORT':'5432',
+        'PASSWORD': 'admin',
+        'HOST': '127.0.0.1',
+        'DATABASE.PORT': '5432',
     }
 
 }
@@ -137,5 +139,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media Files
 
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Auth redirect
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Emails
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
+
+else:#Aqui hay que configura run email apra produccion
+    pass
