@@ -8,11 +8,9 @@ def home(request):
     return render(request, "core/home.html")
 
 
-def service(request):
-    return render(request, 'core/service.html')
 
 
-def about(request):
-    return render(request, 'core/about.html')
+
+
 
 

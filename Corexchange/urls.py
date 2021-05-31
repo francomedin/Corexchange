@@ -29,6 +29,10 @@ urlpatterns = [
     # Paths del auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
+    #Path solicitud
+    path('solicitud/', include('solicitud.urls')),
+
+
 
 
 

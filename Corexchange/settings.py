@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cripto',
     'core',
     'contact',
+    'solicitud',
 ]
 
 MIDDLEWARE = [
