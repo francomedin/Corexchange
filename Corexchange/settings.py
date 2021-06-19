@@ -83,14 +83,9 @@ WSGI_APPLICATION = 'Corexchange.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'corexchange',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': '127.0.0.1',
-        'DATABASE.PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
 }
 
 
@@ -152,5 +147,5 @@ if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
     EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 
-else:#Aqui hay que configura run email apra produccion
+else:  # Aqui hay que configura run email apra produccion
     pass
